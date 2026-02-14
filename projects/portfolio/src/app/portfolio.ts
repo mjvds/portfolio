@@ -64,13 +64,15 @@ enum ColorScheme {
 export class Portfolio implements OnInit {
   animationIndicator = viewChild<ElementRef<HTMLElement>>('animationIndicator');
 
+  hamburder = viewChild(Hamburger);
+
+  projects = viewChildren(Project);
+
   cdr = inject(ChangeDetectorRef);
 
   renderer = inject(Renderer2);
 
   docs = inject(DOCUMENT);
-
-  projects = viewChildren(Project);
 
   ngZone = inject(NgZone);
 
@@ -383,6 +385,7 @@ export class Portfolio implements OnInit {
         this.gotoSectionByIndex(this.jobs.length + 1);
         break;
     }
+    this.hamburder()?.toggle();
   }
 
   onMobileButtonClick(type: string): void {

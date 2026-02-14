@@ -44,8 +44,8 @@
         </span>
       </div>
     } @else {
-      <pf-hamburger #pfHamburger class="z-22"></pf-hamburger>
-      @if (pfHamburger.isActive()) {
+      <pf-hamburger class="z-22"></pf-hamburger>
+      @if (hamburder()?.isActive()) {
         <pf-mobile-nav
           class="z-21"
           animate.enter="mobile-nav-enter"

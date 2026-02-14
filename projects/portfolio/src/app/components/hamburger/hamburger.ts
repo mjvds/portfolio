@@ -27,4 +27,9 @@ export class Hamburger {
   isActive = signal(false);
 
   onClick = output<boolean>();
+
+  toggle(): void {
+    this.isActive.update((value) => !value);
+  }
+
 }

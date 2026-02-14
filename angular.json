@@ -51,7 +51,9 @@
                   "maximumError": "15kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "aot": true,
+              "verbose": true
             },
             "development": {
               "optimization": false,
