@@ -1,0 +1,17 @@
+<!-- <ng-container *ngTemplateOutlet="template()"></ng-container> -->
+
+@if (startAnimating()) {
+  <div
+    #backgroundBlend
+    animate.enter="background-blend--enter"
+    animate.leave="background-blend--leave"
+    class="background-blend absolute h-full w-full"
+    [style.background-color]="blendBg()"
+    >
+  </div>
+}
+
+<!-- <div class="duplicate-template" [class]="duplicateElementClass()"  #duplicateEl> -->
+<!--   <ng-container *ngTemplateOutlet="template()"></ng-container> -->
+<!-- </div> -->
+

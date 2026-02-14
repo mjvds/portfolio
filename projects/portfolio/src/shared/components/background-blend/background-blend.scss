@@ -1,0 +1,54 @@
+:host ::ng-deep {
+  & *:not(.dont-blend) {
+    // filter: invert(1);
+  }
+
+  .duplicate-template * {
+    color: var(--blend-text-color) !important;
+  }
+}
+
+.background-blend {
+  background-color: var(--blend-bg-color);
+  top: 0px;
+  left: 0px;
+
+  transition-property: transform;
+  transition-duration: 470ms;
+  transition-timing-function: var(--pf-transition);
+}
+
+.background-blend--enter + .duplicate-template {
+  clip-path: inset(0 0 0 0);
+
+  @starting-style {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.background-blend--enter {
+  transform: translateX(0%);
+
+  @starting-style {
+    transform: translateX(-100%);
+  }
+}
+
+.background-blend--leave {
+  transform: translateX(-100%);
+
+  @starting-style {
+    transform: translateX(0%);
+  }
+}
+
+.duplicate-template {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  clip-path: inset(0 0% 0 0);
+
+  transition-property: clip-path;
+  transition-duration: 470ms;
+  transition-timing-function: var(--pf-transition);
+}

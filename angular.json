@@ -1,0 +1,85 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "portfolio": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/portfolio",
+      "sourceRoot": "projects/portfolio/src",
+      "prefix": "pf",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/portfolio/src/main.ts",
+            "tsConfig": "projects/portfolio/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "aot" true,
+            "sourceMap": false,
+            "namedChunks": false,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/portfolio/public"
+              }
+            ],
+            "styles": [
+              "projects/portfolio/src/tailwind.css",
+              "projects/portfolio/src/styles.scss"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "15kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "portfolio:build:production"
+            },
+            "development": {
+              "buildTarget": "portfolio:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
+        }
+      }
+    }
+  }
+}

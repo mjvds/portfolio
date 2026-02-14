@@ -1,0 +1,41 @@
+@use 'tailwindcss';
+
+:host {
+  @apply relative grid;
+}
+
+.text {
+  @apply text-nowrap;
+  grid-area: 1 / 1;
+}
+
+.text.animated {
+  @apply absolute top-0 left-0 z-2 pointer-events-none overflow-hidden;
+}
+
+@keyframes textEnter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes textLeave {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.text-enter {
+  animation: textEnter 500ms var(--pf-gsap-p3);
+}
+
+.text-leave {
+  animation: textLeave 500ms var(--pf-gsap-p3);
+}
+

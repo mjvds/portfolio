@@ -1,0 +1,11 @@
+<div class="grid overflow-hidden">
+  @if (active()) {
+    <div class="active-text flex relative" animate.enter="enter-animation" animate.leave="leave-animation">
+      {{ text() }}
+    </div>
+  } @else {
+    <div class="inactive-text flex relative" animate.enter="enter-animation" animate.leave="leave-animation">
+      {{ text() }}
+    </div>
+  }
+</div>

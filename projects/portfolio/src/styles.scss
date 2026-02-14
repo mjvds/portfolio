@@ -1,0 +1,83 @@
+@use 'tailwindcss';
+
+html {
+  @apply overflow-hidden;
+}
+
+body {
+  @apply p-0 m-0 overflow-hidden;
+}
+
+* {
+  font-family: "Bebas Neue", sans-serif;
+  @apply box-border;
+}
+
+:root {
+  --pf-transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --pf-transition2: cubic-bezier(0.77, 0, 0.175, 1);
+  --pf-spacing: 2.5vh;
+  /* GSAP power1 */
+  --pf-gsap-p1: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  /* GSAP power2 */
+  --pf-gsap-p2: cubic-bezier(0.77, 0, 0.175, 1);
+  /* GSAP power3 */
+  --pf-gsap-p3: cubic-bezier(0.645, 0.045, 0.355, 1);
+  /* GSAP power4 */
+  --pf-gsap-p4: cubic-bezier(0.86, 0, 0.07, 1);
+
+  --pf-text-color: #141414;
+  --pf-bg-color:   #f7f7f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pf-text-color: #eaeaea;
+    --pf-bg-color: #212121;
+  }
+}
+
+html[pf-color-scheme="dark"] {
+  --pf-text-color: #eaeaea;
+  --pf-bg-color: #212121;
+}
+
+html[pf-color-scheme="light"] {
+  --pf-text-color: #141414;
+  --pf-bg-color:   #f7f7f7;
+}
+
+.bg-color {
+  background-color: var(--pf-bg-color);
+}
+
+.text-color {
+  color: var(--pf-text-color);
+}
+
+.text-color-as-bg {
+  background-color: var(--pf-text-color);
+}
+
+.bg-as-text-color {
+  color: var(--pf-bg-color);
+}
+
+.writing-vertical {
+  writing-mode: vertical-lr;
+}
+
+.no-scrollbar {
+  overflow: auto;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+}

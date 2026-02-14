@@ -1,0 +1,122 @@
+<div class="section-container text-color-as-bg relative h-screen w-screen relative">
+  <div
+    class="logo-container text-color"
+    (mouseenter)="logoIsHovered = true"
+    (mouseleave)="logoIsHovered = false"
+  >
+    <div class="me-1 font-extrabold logo-lt">&lt;</div>
+    <div class="text-4xl logo-name">M</div>
+    @if (logoIsHovered) {
+      <div
+        class="logo-initials text-4xl logo-name"
+        animate.enter="initials-enter"
+        animate.leave="initials-leave"
+      >
+        JVDS
+      </div>
+    }
+    <div class="ms-1 font-extrabold logo-gt">/&gt;</div>
+  </div>
+
+  <nav class="nav-top-right text-color">
+    @if (!isSmallViewport()) {
+      <div>
+        <span
+          class="cursor-pointer section-name"
+          [class.active-link]="projectIsActive()"
+          (click)="gotoSectionByIndex(1)"
+        >
+          Projects
+        </span>
+      </div>
+      <div>
+        <span
+          class="cursor-pointer section-name"
+          [class.active-link]="contactIsActive()"
+          (click)="gotoSectionByIndex(jobs.length + 1)"
+        >
+          Contact
+        </span>
+      </div>
+      <div>
+        <span class="flex items-center text-xl cursor-pointer" (click)="toggleColorScheme()">
+          <ng-icon name="jamSun"></ng-icon>
+        </span>
+      </div>
+    } @else {
+      <pf-hamburger #pfHamburger class="z-22"></pf-hamburger>
+      @if (pfHamburger.isActive()) {
+        <pf-mobile-nav
+          class="z-21"
+          animate.enter="mobile-nav-enter"
+          animate.leave="mobile-nav-leave"
+          (onItemClick)="onMobileItemClick($event)"
+          (onButtonClick)="onMobileButtonClick($event)"
+        >
+        </pf-mobile-nav>
+      }
+    }
+  </nav>
+
+  <div class="nav-bottom-right">
+    <span class="text-4xl text-color">scroll</span>
+    <span class="text-4xl text-color tracking-[-2px]"> --- </span>
+  </div>
+
+  <!-- @if (isAnimating) { -->
+  <div class="animation-indicator-container relative" animate.leave="indicator-leave">
+    <div class="animation-indicator" #animationIndicator></div>
+  </div>
+  <!-- } -->
+
+  @if (currentVisibleIndex() === 0) {
+    <pf-introduction
+      class="section"
+      #introduction
+      [showBgIcon]="!isSmallViewport()"
+      (animate.enter)="enterFn($event, introduction)"
+      (animate.leave)="leaveFn($event, introduction)"
+    />
+  }
+
+  @if (showSideYearIndicator()) {
+    <div
+      class="project-steps"
+      animate.enter="project-steps-enter"
+      animate.leave="project-steps-leave"
+    >
+      @for (p of projectsDescription(); track p.id; let index = $index) {
+        <div
+          (click)="gotoSectionByIndex(index + 1)"
+          class="project-step"
+          [class.project-step-active]="activeProjectId() === p.id"
+        >
+          <div class="project-step-dot text-color-as-bg"></div>
+          <div class="project-step-name text-color">{{ p.year }}</div>
+        </div>
+      }
+    </div>
+  }
+
+  @for (job of jobs; track job.id; let odd = $odd; let index = $index) {
+    @if (currentVisibleIndex() === index + 1) {
+      <pf-project
+        #project
+        class="section"
+        [jobData]="job"
+        (animate.enter)="enterFn($event, project)"
+        (animate.leave)="leaveFn($event, project)"
+      />
+    }
+  }
+
+  @let contactIndex = jobs.length + 1;
+  @if (currentVisibleIndex() === contactIndex) {
+    <pf-contact
+      #contact
+      class="section"
+      (animate.enter)="enterFn($event, contact)"
+      (animate.leave)="leaveFn($event, contact)"
+    />
+  }
+</div>

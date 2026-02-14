@@ -1,0 +1,33 @@
+@use 'tailwindcss';
+
+.inactive-text,
+.active-text {
+  transition-property: top;
+  transition-duration: 10000ms;
+  transition-timing-function: var(--pf-gsap-p4);
+
+  grid-area: 1 / 1;
+  line-height: 1;
+}
+
+.inactive-text {
+  color: var(--pf-inactive-color);
+}
+
+.active-text {
+  color: var(--pf-active-color);
+}
+
+.enter-animation {
+  top: 0%;
+  @starting-style {
+    top: -100%;
+  }
+}
+
+.leave-animation {
+  top: 100%;
+  @starting-style {
+    top: 0%;
+  }
+}

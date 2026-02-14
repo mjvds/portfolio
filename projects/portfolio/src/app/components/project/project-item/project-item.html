@@ -1,0 +1,10 @@
+@if (visible()) {
+  <div
+      class="project-item-content grid h-full w-full {{ animationDirectionClass() }}"
+      animate.enter="project-item-content-enter"
+      animate.leave="project-item-content-leave"
+    >
+    <ng-content></ng-content>
+  </div>
+}
+

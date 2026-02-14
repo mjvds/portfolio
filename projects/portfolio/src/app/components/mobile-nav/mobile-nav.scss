@@ -1,0 +1,40 @@
+@use 'tailwindcss';
+
+:host {
+  @apply fixed top-0 left-0 h-screen w-screen flex flex-col justify-center items-center gap-5 overflow-hidden;
+  background-color: var(--pf-bg-color);
+}
+
+.top-nav {
+  @apply absolute top-0 left-0 p-3;
+}
+
+.nav-item {
+  @apply text-8xl;
+}
+
+@keyframes mobileNavEnter {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 100vh;
+  }
+}
+
+@keyframes mobileNavLeave {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 0vh;
+  }
+}
+
+:host.mobile-nav-enter {
+  animation: mobileNavEnter 800ms var(--pf-gsap-p2);
+}
+
+:host.mobile-nav-leave {
+  animation: mobileNavLeave 800ms var(--pf-gsap-p2);
+}

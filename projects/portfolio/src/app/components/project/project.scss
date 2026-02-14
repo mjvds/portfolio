@@ -1,0 +1,36 @@
+@use 'tailwindcss';
+
+:host ::ng-deep {
+  ng-icon circle,
+  ng-icon path {
+    fill: var(--pf-text-color);
+  }
+}
+
+:host {
+  @apply relative h-screen w-full block relative;
+  color: var(--pf-bg-color);
+}
+
+.project-name {
+  font-size: clamp(4rem, 6rem, 10vw);
+  line-height: .8;
+}
+
+.project-container {
+  @apply flex flex-col h-full justify-between;
+  // background: url("/images/background.png") cover center;
+}
+
+.project-year-text {
+  @apply leading-none fixed text-[10rem];
+  padding: calc(var(--pf-spacing) * 2);
+  inset-block-end: 0px;
+  inset-inline-start: 0px;
+  line-height: .7;
+  font-size: clamp(7rem, 13vw, 20vw);
+}
+
+.tech-stacks-containers {
+  @apply flex gap-5 py-3 flex-wrap;
+}

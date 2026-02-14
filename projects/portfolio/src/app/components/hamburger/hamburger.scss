@@ -1,0 +1,52 @@
+@use 'tailwindcss';
+
+:host {
+  @apply flex flex-col h-[20px] w-[35px] gap-[4px] relative;
+}
+
+:host.active {
+  .line.top,
+  .line.bottom {
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  .line.bottom {
+    transform: rotate(130deg);
+  }
+  .line.top {
+    transform: rotate(45deg);
+  }
+  .line.middle {
+    opacity: 0;
+  }
+}
+
+.line.bottom {
+  inset-block-end: 0px;
+}
+
+.line.top {
+  inset-block-start: 0px;
+}
+
+.line.top,
+.line.middle,
+.line.bottom {
+  transition-property: transform, top, bottom;
+  transition-duration: 500ms;
+  transition-timing-function: var(--pf-gsap-p2);
+  position: absolute;
+  left: 0;
+}
+
+.line.middle {
+  transition: opacity 500ms var(--pf-gsap-p2);
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.line {
+  @apply w-full;
+  height: 4px;
+}

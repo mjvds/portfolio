@@ -1,0 +1,11 @@
+@use 'tailwindcss';
+
+:host {
+  @apply h-full w-full;
+}
+
+pf-vertical-text-color-change {
+  @apply cursor-pointer;
+  line-height: .8;
+  font-size: clamp(5rem, 10vw, 20vw);
+}

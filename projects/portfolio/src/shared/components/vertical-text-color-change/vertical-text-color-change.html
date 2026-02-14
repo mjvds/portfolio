@@ -1,0 +1,19 @@
+<a
+  class="text opacity-60 z-1"
+  [href]="link()"
+  target="_blank"
+  [attr.download]="downloadable() ? '' : null"
+  >{{ text() }}</a
+>
+@if (hovered()) {
+  <a
+    class="text animated z-2"
+    animate.enter="text-enter"
+    animate.leave="text-leave"
+    [href]="link()"
+    target="_blank"
+    [attr.download]="downloadable() ? '' : null"
+  >
+    {{ text() }}
+  </a>
+}

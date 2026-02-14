@@ -1,0 +1,51 @@
+@use 'tailwindcss';
+
+:host {
+  @apply grid rounded-xs cursor-default;
+}
+
+:host > * {
+  grid-area: 1 / 1;
+}
+
+.name {
+  font-size: inherit;
+  color: inherit;
+}
+
+:host ::ng-deep {
+  svg path {
+    fill: currentColor;
+  }
+}
+
+.name,
+.name-clone {
+  grid-area: 1 / 1;
+}
+
+.letter {
+  transition-duration: 500ms;
+  transition-property: transform, color;
+  transition-timing-function: var(--pf-gsap-p3);
+}
+
+.clone-letter {
+  transform: translateY(-100%);
+}
+
+:host.hovered .og-letter {
+  // transition-delay: calc(100ms * var(--index));
+  transform: translateY(100%);
+  @starting-style {
+    transform: translateY(0%);
+  }
+}
+
+:host.hovered .clone-letter {
+  // transition-delay: calc(100ms * var(--index));
+  transform: translateY(0%);
+  @starting-style {
+    transform: translateY(-100%);
+  }
+}

@@ -1,0 +1,212 @@
+@use 'tailwindcss';
+
+:host {
+  background-color: var(--pf-bg-color);
+}
+
+.loading-container {
+  @apply flex items-center justify-center h-screen w-screen;
+  padding: var(--pf-spacing);
+  background: var(--pf-bg-color);
+  color: var(--pf-text-color);
+  font-size: clamp(6rem, 10vw, 15vw);
+}
+
+.loading-text {
+  @apply flex flex-col items-center;
+  line-height: .8;
+}
+
+.loading-text span {
+  grid-area: 1 / 1;
+}
+
+.progress-container {
+  @apply grid;
+}
+
+.progress-container .progress {
+  @apply flex items-end;
+    grid-area: 1 / 1;
+    line-height: .8;
+}
+
+.section-container {
+  @apply grid relative h-full;
+  will-change: padding;
+  transition: padding 500ms var(--pf-gsap-p3);
+  padding: var(--pf-spacing);
+}
+
+.section-container > .section {
+  @apply rounded-xs overflow-hidden opacity-0;
+  height: calc(100vh - (var(--pf-spacing) * 2));
+
+  will-change: height;
+  transition: height 500ms var(--pf-gsap-p3);
+  grid-area: 1 / 1;
+}
+
+.animation-indicator-container {
+  @apply h-screen w-screen absolute top-0 left-0;
+  transition-duration: 200ms;
+  transition-property: height;
+  transition-timing-function: ease;
+}
+
+.animation-indicator {
+  @apply absolute z-9 w-full opacity-90;
+  background-color: var(--pf-text-color);
+  height: calc(var(--pf-spacing) / 2) !important;
+}
+
+.indicator-leave {
+  height: 0% !important;
+  @starting-style {
+    height: 100% !important;
+  }
+}
+
+.nav-top-right {
+  @apply w-auto text-4xl gap-5 p-5 absolute flex z-4 items-center;
+  height: auto !important;
+  right: var(--pf-spacing);
+  inset-block-start: var(--pf-spacing);
+
+  will-change: right, inset-block-start;
+  transition-property: right, inset-block-start;
+  transition-duration: 500ms;
+  transition-timing-function: var(--pf-gsap-p3);
+}
+
+.nav-bottom-right {
+  @apply text-4xl p-5 absolute flex z-1;
+  inset-block-end: 0px;
+  height: auto !important;
+  writing-mode: sideways-rl;
+  right: var(--pf-spacing);
+  inset-inline-end: var(--pf-spacing);
+
+  will-change: right, inset-inline-end;
+  transition-property: right, inset-inline-end;
+  transition-duration: 500ms;
+  transition-timing-function: var(--pf-gsap-p3);
+}
+
+.project-steps {
+  @apply absolute z-3 flex flex-col gap-8 p-5 h-full justify-center;
+  inset-inline-end: var(--pf-spacing);
+
+  will-change: inset-inline-end;
+  transition-property: inset-inline-end;
+  transition-duration: 500ms;
+  transition-timing-function: var(--pf-gsap-p3);
+}
+
+.project-step {
+  @apply flex items-center justify-center cursor-pointer relative;
+  opacity: .7;
+  transition: 500ms var(--pf-gsap-p2);
+  transition-property: opacity;
+}
+
+.project-step-active {
+  opacity: 1;
+}
+
+@keyframes projectStepEnter {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes projectStepLeave {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.project-steps-enter {
+  animation: projectStepEnter 500ms var(--pf-gsap-p1);
+  animation-delay: calc(200ms * var(--index));
+}
+
+.project-steps-leave {
+  animation: projectStepLeave 500ms var(--pf-gsap-p1);
+}
+
+.project-step-dot {
+  @apply text-4xl leading-none h-[5px] w-[10px] opacity-40;
+}
+
+.project-step-name {
+  @apply absolute right-[8px] rounded-sm px-2 text-nowrap me-2 opacity-40;
+}
+
+.section-name:not(.active-link) {
+  transition: opacity 500ms ease;
+  opacity: .7;
+  @starting-style {
+    opacity: 1;
+  }
+}
+
+.logo-container {
+  @apply absolute flex text-2xl cursor-default items-center z-2 md:p-0 p-3;
+  inset-block-start: calc(var(--pf-spacing) * 2);
+  inset-inline-start: calc(var(--pf-spacing) * 2);
+}
+
+.logo-initials {
+  @apply overflow-hidden;
+  transition-duration: 5000ms;
+  transition-property: max-width;
+  transition-timing-function: var(--pf-gsap-p1);
+  will-change: max-width;
+}
+
+// .logo-name {
+//   color: #cba6f7;
+// }
+//
+// .logo-lt,
+// .logo-gt {
+//   @apply text-3xl;
+//   color: #799ddc;
+// }
+
+@keyframes enterKeyFrames {
+  from {
+    max-width: 0px;
+  }
+  to {
+    max-width: 100px;
+  }
+}
+
+@keyframes leaveKeyFrames {
+  from {
+    max-width: 100px;
+  }
+  to {
+    max-width: 0px;
+  }
+}
+
+.initials-enter {
+  animation: enterKeyFrames 500ms var(--pf-gsap-p1);
+}
+
+.initials-leave {
+  animation: leaveKeyFrames 500ms var(--pf-gsap-p1);
+}
