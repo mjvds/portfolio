@@ -1,14 +1,13 @@
-@use 'tailwindcss';
-
-:host ::ng-deep {
-  ng-icon circle,
-  ng-icon path {
-    fill: var(--pf-text-color);
-  }
-}
+// :host ::ng-deep {
+//   ng-icon circle,
+//   ng-icon path {
+//     fill: var(--pf-text-color);
+//   }
+// }
 
 :host {
-  @apply relative h-screen w-full block relative;
+  @apply relative w-full block relative;
+  height: var(--pf-h-screen);
   color: var(--pf-bg-color);
 }
 
@@ -31,6 +30,6 @@
   font-size: clamp(7rem, 13vw, 20vw);
 }
 
-.tech-stacks-containers {
-  @apply flex gap-5 py-3 flex-wrap;
+.tech-stacks-container {
+  @apply flex flex-wrap justify-start;
 }

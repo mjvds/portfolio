@@ -1,8 +1,12 @@
-@use 'tailwindcss';
-
 :host {
   @apply relative h-full w-full flex;
   color: var(--pf-text-color);
+}
+
+.intro-container {
+  @apply grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
 }
 
 .greet-hi {
@@ -11,34 +15,23 @@
 }
 
 .intro-section {
-  @apply flex justify-start z-1 w-full h-1/2 p-5;
+  @apply flex justify-start z-1 w-full h-auto;
 }
 
-
 .intro-name {
-  @apply font-normal leading-none font-normal;
+  @apply leading-none;
   font-size: clamp(6rem, 10vw, 15vw);
   line-height: 0.8;
-  // transform: scale3d(1, 1, 1);
 }
 
 
 .background-images {
-  @apply flex absolute top-0 left-0 h-full w-full;
-  // grid-template-rows: repeat(var(--pf-intro-bg-rows), 1fr);
-  // grid-template-columns: repeat(var(--pf-intro-bg-columns), 1fr);
+  @apply flex absolute top-[0px] left-[0px] h-full w-full;
+}
+
+.tech-stack-wrapper {
+  @apply flex flex-col justify-end items-start overflow-hidden;
 }
 
 .intro-bg-icon {
-  transition-property: top, left, opacity;
-  transition-duration: 500ms;
-  transition-timing-function: var(--pf-gsap-p3);
 }
-
-// .background-images .row {
-//   @apply flex justify-evenly;
-// }
-//
-// .background-images .cell {
-//   // @apply w-full;
-// }

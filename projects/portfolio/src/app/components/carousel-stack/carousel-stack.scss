@@ -1,0 +1,25 @@
+@keyframes moveX {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+:host {
+  @apply w-full overflow-x-auto overflow-y-hidden;
+}
+
+:host {
+  @apply flex;
+}
+
+.items-container {
+  @apply flex gap-[1.5rem];
+  padding-right: 1.5rem;
+  // animation-name: moveX;
+  // animation-duration: calc(var(--items-count) * 1s);
+  // animation-timing-function: linear;
+  // animation-iteration-count: infinite;
+}

@@ -1,14 +1,13 @@
 @let job = jobData();
 <div class="project-container bg-color text-color p-5" #container>
   <div class="h-full justify-center flex flex-col gap-1 lg:gap-2">
-    <!-- <h1 class="text-7xl opacity-40" #animatedText>0{{ job?.id }}</h1> -->
-    <h1 class="project-name" #animatedText>{{ job?.projectName }}</h1>
-    <h3 class="text-3xl opacity-60" #animatedWords>{{ job?.projectCategory }}</h3>
+    <h1 class="project-name text-pretty" #animatedText>{{ job?.projectName }}</h1>
+    <h3 class="text-3xl opacity-60 text-pretty" #animatedWords>{{ job?.projectCategory }}</h3>
     <h5 class="text-4xl opacity-60" #animatedWords>{{ job?.role }}</h5>
     <h3 class="text-4xl opacity-60" #animatedWords>{{ job?.company }}</h3>
-    <div class="tech-stacks-containers">
+    <div class="tech-stacks-container py-3 gap-3">
       @for (stack of job?.techStack; track stack) {
-        <pf-tech-stack [name]="stack.name" [icon]="stack.icon" class="text-color bg-color px-2">
+        <pf-tech-stack [name]="stack.name" [icon]="stack.icon" class="text-color bg-color pr-3">
         </pf-tech-stack>
       }
     </div>

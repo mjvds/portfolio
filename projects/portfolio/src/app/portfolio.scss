@@ -1,11 +1,11 @@
-@use 'tailwindcss';
-
 :host {
   background-color: var(--pf-bg-color);
 }
 
 .loading-container {
-  @apply flex items-center justify-center h-screen w-screen;
+  @apply flex items-center justify-center;
+  width: var(--pf-w-screen);
+  height: var(--pf-h-screen);
   padding: var(--pf-spacing);
   background: var(--pf-bg-color);
   color: var(--pf-text-color);
@@ -39,7 +39,7 @@
 }
 
 .section-container > .section {
-  @apply rounded-xs overflow-hidden opacity-0;
+  @apply overflow-hidden opacity-0;
   height: calc(100vh - (var(--pf-spacing) * 2));
 
   will-change: height;
@@ -48,14 +48,16 @@
 }
 
 .animation-indicator-container {
-  @apply h-screen w-screen absolute top-0 left-0;
+  @apply absolute top-[0px] left-[0px];
+  height: var(--pf-h-screen);
+  width: var(--pf-w-screen);
   transition-duration: 200ms;
   transition-property: height;
   transition-timing-function: ease;
 }
 
 .animation-indicator {
-  @apply absolute z-9 w-full opacity-90;
+  @apply absolute z-9 w-full opacity-10;
   background-color: var(--pf-text-color);
   height: calc(var(--pf-spacing) / 2) !important;
 }
@@ -68,7 +70,7 @@
 }
 
 .nav-top-right {
-  @apply w-auto text-4xl gap-5 p-5 absolute flex z-4 items-center;
+  @apply w-auto absolute flex z-4 items-center;
   height: auto !important;
   right: var(--pf-spacing);
   inset-block-start: var(--pf-spacing);
@@ -80,7 +82,7 @@
 }
 
 .nav-bottom-right {
-  @apply text-4xl p-5 absolute flex z-1;
+  @apply absolute flex z-1;
   inset-block-end: 0px;
   height: auto !important;
   writing-mode: sideways-rl;
@@ -94,7 +96,7 @@
 }
 
 .project-steps {
-  @apply absolute z-3 flex flex-col gap-8 p-5 h-full justify-center;
+  @apply absolute z-3 flex flex-col h-full justify-center;
   inset-inline-end: var(--pf-spacing);
 
   will-change: inset-inline-end;
@@ -146,11 +148,11 @@
 }
 
 .project-step-dot {
-  @apply text-4xl leading-none h-[5px] w-[10px] opacity-40;
+  @apply leading-none h-[5px] w-[10px] opacity-40;
 }
 
 .project-step-name {
-  @apply absolute right-[8px] rounded-sm px-2 text-nowrap me-2 opacity-40;
+  @apply absolute right-[8px] text-nowrap opacity-40;
 }
 
 .section-name:not(.active-link) {
@@ -162,7 +164,7 @@
 }
 
 .logo-container {
-  @apply absolute flex text-2xl cursor-default items-center z-2 md:p-0 p-3;
+  @apply absolute flex cursor-default items-center z-2;
   inset-block-start: calc(var(--pf-spacing) * 2);
   inset-inline-start: calc(var(--pf-spacing) * 2);
 }

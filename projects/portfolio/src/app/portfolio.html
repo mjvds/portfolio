@@ -1,6 +1,6 @@
-<div class="section-container text-color-as-bg relative h-screen w-screen relative">
+<div class="section-container text-color-as-bg relative pf-h-screen pf-w-screen relative">
   <div
-    class="logo-container text-color"
+    class="logo-container text-color md:p-0 p-3 text-2xl"
     (mouseenter)="logoIsHovered = true"
     (mouseleave)="logoIsHovered = false"
   >
@@ -18,7 +18,7 @@
     <div class="ms-1 font-extrabold logo-gt">/&gt;</div>
   </div>
 
-  <nav class="nav-top-right text-color">
+  <nav class="nav-top-right p-5 text-4xl text-color gap-5 p-5">
     @if (!isSmallViewport()) {
       <div>
         <span
@@ -58,7 +58,7 @@
     }
   </nav>
 
-  <div class="nav-bottom-right">
+  <div class="nav-bottom-right text-4xl p-5">
     <span class="text-4xl text-color">scroll</span>
     <span class="text-4xl text-color tracking-[-2px]"> --- </span>
   </div>
@@ -71,7 +71,7 @@
 
   @if (currentVisibleIndex() === 0) {
     <pf-introduction
-      class="section"
+      class="section rounded-xs"
       #introduction
       [showBgIcon]="!isSmallViewport()"
       (animate.enter)="enterFn($event, introduction)"
@@ -81,7 +81,7 @@
 
   @if (showSideYearIndicator()) {
     <div
-      class="project-steps"
+      class="project-steps gap-8 p-5"
       animate.enter="project-steps-enter"
       animate.leave="project-steps-leave"
     >
@@ -91,8 +91,8 @@
           class="project-step"
           [class.project-step-active]="activeProjectId() === p.id"
         >
-          <div class="project-step-dot text-color-as-bg"></div>
-          <div class="project-step-name text-color">{{ p.year }}</div>
+          <div class="project-step-dot text-4xl text-color-as-bg"></div>
+          <div class="project-step-name text-color rounded-sm px-2 me-2">{{ p.year }}</div>
         </div>
       }
     </div>
@@ -102,7 +102,7 @@
     @if (currentVisibleIndex() === index + 1) {
       <pf-project
         #project
-        class="section"
+        class="section rounded-xs"
         [jobData]="job"
         (animate.enter)="enterFn($event, project)"
         (animate.leave)="leaveFn($event, project)"
@@ -114,7 +114,7 @@
   @if (currentVisibleIndex() === contactIndex) {
     <pf-contact
       #contact
-      class="section"
+      class="section rounded-xs"
       (animate.enter)="enterFn($event, contact)"
       (animate.leave)="leaveFn($event, contact)"
     />

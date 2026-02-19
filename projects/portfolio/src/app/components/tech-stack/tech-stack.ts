@@ -6,6 +6,9 @@ import { NgIcon } from '@ng-icons/core';
   imports: [NgIcon],
   templateUrl: './tech-stack.html',
   styleUrl: './tech-stack.scss',
+  host: {
+    class: 'rounded-xs'
+  }
 })
 export class TechStack {
 

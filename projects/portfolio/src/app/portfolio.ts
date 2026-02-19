@@ -140,13 +140,24 @@ export class Portfolio implements OnInit {
 
   constructor() {
     effect(() => {
+      const dvhIsSupported = CSS.supports('height', '100dvh');
+      if (!dvhIsSupported) {
+        this.#setCssVar('--pf-h-screen', `${window.innerHeight}px`);
+        this.#setCssVar('--pf-w-screen', `${window.innerWidth}px`);
+      }
       switch (this.responsiveObservable()) {
         case ResponsiveName.XS:
         case ResponsiveName.SM:
-          this.docs.documentElement.style.setProperty('--pf-spacing', '0vh');
+          this.#setCssVar('--pf-spacing', dvhIsSupported ? '0dvh' : '0px');
           break;
         default:
-          this.docs.documentElement.style.setProperty('--pf-spacing', '2.5vh');
+          const percentageHeight = !dvhIsSupported
+            ? this.#calculatePercentage(window.innerHeight, 2.5)
+            : null;
+          this.#setCssVar(
+            '--pf-spacing',
+            dvhIsSupported ? '2.5vh' : `${percentageHeight}px`,
+          );
           break;
       }
     });
@@ -154,14 +165,23 @@ export class Portfolio implements OnInit {
 
   ngOnInit(): void {
     Observer.create({
-      type: 'wheel,touch,pointer',
+      type: 'wheel,touch',
       wheelSpeed: -1,
+      ignore: '.observer-ignore',
       onDown: () => this.onDown(),
       onUp: () => this.onUp(),
       debounce: true,
       tolerance: 10,
       preventDefault: true,
     });
+  }
+
+  #calculatePercentage(num: number, percentage: number): number {
+    return num * (percentage / 100);
+  }
+
+  #setCssVar(name: string, value: string): void {
+    this.docs.documentElement.style.setProperty(name, value);
   }
 
   onDown(): void {

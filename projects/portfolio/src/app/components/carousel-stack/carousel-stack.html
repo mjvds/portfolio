@@ -1,0 +1,18 @@
+<div class="items-container" #itemsContainer>
+  @if (itemTemplate(); as itemTemplate) {
+    @for (item of items(); track item.id; let index = $index) {
+      <div class="stack-item">
+        <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }"></ng-container>
+      </div>
+    }
+  }
+</div>
+<div class="items-container" #itemsContainer>
+  @if (itemTemplate(); as itemTemplate) {
+    @for (item of items(); track item.id; let index = $index) {
+      <div class="stack-item">
+        <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }"></ng-container>
+      </div>
+    }
+  }
+</div>

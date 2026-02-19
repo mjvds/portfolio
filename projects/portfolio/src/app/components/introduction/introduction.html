@@ -1,11 +1,27 @@
 <!-- <div class="intro-bg h-full w-full top-0 left-0 absolute"></div> -->
-<div class="bg-color flex flex-col justify-center h-full relative w-full" #container>
-  <div #background class="intro-bg bg-color h-[50%] w-full absolute bottom-0"></div>
-  <div class="intro-section items-start flex-col"></div>
-  <div class="intro-section items-end">
+<div class="intro-container bg-color h-full relative w-full" #container>
+  <!-- <div #background class="intro-bg bg-color h-[50%] w-full absolute bottom-0"></div> -->
+  <div class="px-5 p-5 observer-ignore tech-stack-wrapper w-full h-full">
+    <div class="tech-stack-content w-full" #techStackContent>
+      <div class="flex flex-nowrap justify-start gap-5 opacity-60 w-full" #techStackContents>
+        <pf-carousel-stack [items]="stacks">
+          <ng-template #itemTemplate let-stack="item">
+            <div class="intro-bg-icon flex items-center justify-center" title="{{ stack.name }}">
+              @if (stack?.icon) {
+                <ng-icon [name]="stack.icon" class="text-5xl pointer-events-none"></ng-icon>
+              } @else {
+                <span class="text-2xl text-nowrap">{{ stack.name }}</span>
+              }
+            </div>
+          </ng-template>
+        </pf-carousel-stack>
+      </div>
+    </div>
+  </div>
+  <div class="intro-section items-end px-5 pb-5">
     <div class="w-full flex items-end justify-start">
       <div class="items-start flex-col">
-        <div class="intro-name flex gap-5 flex-wrap" #logoInitContainer>
+        <div class="intro-name font-normal flex gap-5 flex-wrap" #logoInitContainer>
           <span #animatedText class="flex"> MARK </span>
           <span #animatedText class="flex"> DELOS </span>
           <span #animatedText class="flex"> SANTOS </span>
@@ -18,24 +34,24 @@
       <div class="w-1/2 flex flex-col justify-center text-4xl items-end gap-5"></div>
     </div>
   </div>
-  @if (showBgIcon()) {
-    <div class="background-images">
-      @for (key of randomTechKeys; track key; let row = $index) {
-        @let stack = randomTechStacksPlacement[key];
-        @if (stack) {
-          <div
-            [style.top]="stack.top"
-            [style.left]="stack.left"
-            class="intro-bg-icon absolute opacity-10"
-          >
-            @if (stack?.icon) {
-              <ng-icon [name]="stack.icon" class="text-5xl"></ng-icon>
-            } @else {
-              <span class="text-2xl text-nowrap">{{ stack.name }}</span>
-            }
-          </div>
-        }
-      }
-    </div>
-  }
+  <!-- @if (showBgIcon()) { -->
+  <!--   <div class="background-images"> -->
+  <!--     @for (key of randomTechKeys; track key; let row = $index) { -->
+  <!--       @let stack = randomTechStacksPlacement[key]; -->
+  <!--       @if (stack) { -->
+  <!--         <div -->
+  <!--           [style.top]="stack.top" -->
+  <!--           [style.left]="stack.left" -->
+  <!--           class="intro-bg-icon absolute opacity-10" -->
+  <!--         > -->
+  <!--           @if (stack?.icon) { -->
+  <!--             <ng-icon [name]="stack.icon" class="text-5xl"></ng-icon> -->
+  <!--           } @else { -->
+  <!--             <span class="text-2xl text-nowrap">{{ stack.name }}</span> -->
+  <!--           } -->
+  <!--         </div> -->
+  <!--       } -->
+  <!--     } -->
+  <!--   </div> -->
+  <!-- } -->
 </div>

@@ -16,6 +16,9 @@ import { NgIcon } from '@ng-icons/core';
   ],
   templateUrl: './mobile-nav.html',
   styleUrl: './mobile-nav.scss',
+  host: {
+    class: 'gap-5'
+  }
 })
 export class MobileNav {
   animatedText = viewChildren<ElementRef<HTMLElement>>('animatedText');

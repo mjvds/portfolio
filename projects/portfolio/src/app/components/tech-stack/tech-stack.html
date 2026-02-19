@@ -1,19 +1,13 @@
 <div class="flex items-center gap-1">
   @if (icon()) {
-    <ng-icon [name]="icon()" class="opacity-70"></ng-icon>
+    <ng-icon [name]="icon()" class="opacity-70" color="none"></ng-icon>
   }
   <div class="name-container grid overflow-hidden">
     <div class="name opacity-70 flex gap-[1px]">
       <div class="letter og-letter leading-none">{{ name() }}</div>
-      <!-- @for (n of nameArr(); track $index; let index = $index) { -->
-      <!--   <div class="letter og-letter leading-none">{{ n }}</div> -->
-      <!-- } -->
     </div>
     <div class="name-clone opacity-100 flex gap-[1px]">
       <div class="letter clone-letter leading-none">{{ name() }}</div>
-      <!-- @for (n of nameArr(); track $index; let index = $index) { -->
-      <!--   <div class="letter clone-letter leading-none">{{ n }}</div> -->
-      <!-- } -->
     </div>
   </div>
 </div>

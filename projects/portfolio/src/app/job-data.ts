@@ -7,6 +7,7 @@ export interface JobDataTechStack {
 
   top?: string;
   left?: string;
+  visible?: boolean;
 }
 
 export interface JobData {
@@ -26,37 +27,37 @@ const _techStacks: JobDataTechStack[] = [
   // Frontend Core
   {
     name: 'HTML5',
-    icon: 'diHtml5Plain',
+    icon: 'diHtml5Original',
     category: 'frontend',
   },
   {
     name: 'CSS',
-    icon: 'diCss3Plain',
+    icon: 'diCss3Original',
     category: 'frontend',
   },
   {
     name: 'Javascript',
-    icon: 'diJavascriptPlain',
+    icon: 'diJavascriptOriginal',
     category: 'frontend',
   },
   {
     name: 'Typescript',
-    icon: 'diTypescriptPlain',
+    icon: 'diTypescriptOriginal',
     category: 'frontend',
   },
   {
     name: 'Angular',
-    icon: 'diAngularPlain',
+    icon: 'diAngularOriginal',
     category: 'frontend',
   },
   {
     name: 'Angular Material',
-    icon: 'diAngularmaterialPlain',
+    icon: 'diAngularmaterialOriginal',
     category: 'frontend',
   },
   {
     name: 'DevExtreme',
-    icon: '',
+    icon: 'pfIconDevextreme',
     category: 'frontend',
   },
 
@@ -73,36 +74,36 @@ const _techStacks: JobDataTechStack[] = [
   },
   {
     name: 'Bootstrap',
-    icon: 'diBootstrapPlain',
+    icon: 'diBootstrapOriginal',
     category: 'styling',
   },
 
   // State Management
   {
     name: 'NgRx',
-    icon: 'diNgrxPlain',
+    icon: 'diNgrxOriginal',
     category: 'state-management',
   },
   {
     name: 'Akita state management',
-    icon: '',
+    icon: 'pfIconAkita',
     category: 'state-management',
   },
   {
     name: 'Elf state management',
-    icon: '',
+    icon: 'pfIconElf',
     category: 'state-management',
   },
 
   // Backend
   {
     name: '.NET Core',
-    icon: 'diDotnetcorePlain',
+    icon: 'diDotnetcoreOriginal',
     category: 'backend',
   },
   {
     name: 'SignalR',
-    icon: '',
+    icon: 'pfIconSignalR',
     category: 'backend',
   },
 
@@ -123,44 +124,44 @@ const _techStacks: JobDataTechStack[] = [
   // Tooling
   {
     name: 'Git',
-    icon: 'diGitPlain',
+    icon: 'diGitOriginal',
     category: 'tooling',
   },
   {
     name: 'Jira',
-    icon: 'diJiraPlain',
+    icon: 'diJiraOriginal',
     category: 'tooling',
   },
   {
     name: 'Neovim',
-    icon: 'diNeovimPlain',
+    icon: 'diNeovimOriginal',
     category: 'tooling',
   },
 
   // OS / CLI
   {
     name: 'Linux',
-    icon: 'diArchlinuxPlain',
+    icon: 'diArchlinuxOriginal',
     category: 'os',
   },
   {
     name: 'Bash',
-    icon: 'diBashPlain',
+    icon: 'diBashOriginal',
     category: 'devops-cli',
   },
   {
     name: 'Lua',
-    icon: 'diLuaPlain',
+    icon: 'diLuaOriginal',
     category: 'devops-cli',
   },
   {
     name: 'Github Action',
-    icon: 'diGithubactionsPlain',
+    icon: 'diGithubactionsOriginal',
     category: 'devops-cli',
   },
   {
     name: 'GSAP',
-    icon: `gsapIcon`
+    icon: `pfIconGsap`
   }
 ];
 
@@ -171,27 +172,27 @@ const _jobData: JobData[] = [
     yearEnd: 2017,
     company: 'CyberMetrics',
     projectName: 'Faciliworks Lite',
-    role: 'Fontend Developer',
+    role: 'Frontend Developer',
     techStack: [
       {
         name: 'AngularJS',
-        icon: 'diAngularjsPlain',
+        icon: 'diAngularjsOriginal',
       },
       {
         name: 'CSS',
-        icon: 'diCss3Plain',
+        icon: 'diCss3Original',
       },
       {
         name: 'Javascript',
-        icon: 'diJavascriptPlain',
+        icon: 'diJavascriptOriginal',
       },
       {
         name: 'DevExtreme',
-        icon: '',
+        icon: 'pfIconDevextreme',
       },
       {
         name: 'HTML5',
-        icon: 'diHtml5Plain',
+        icon: 'diHtml5Original',
       },
     ],
     projectCategory: 'CMMS',
@@ -213,7 +214,7 @@ const _jobData: JobData[] = [
     techStack: [
       {
         name: 'Angular',
-        icon: 'diAngularPlain',
+        icon: 'diAngularOriginal',
       },
       {
         name: 'SASS',
@@ -221,27 +222,27 @@ const _jobData: JobData[] = [
       },
       {
         name: 'Typescript',
-        icon: 'diTypescriptPlain',
+        icon: 'diTypescriptOriginal',
       },
       {
         name: 'DevExtreme',
-        icon: '',
+        icon: 'pfIconDevextreme',
       },
       {
         name: 'SignalR',
-        icon: '',
+        icon: 'pfIconSignalR',
       },
       {
         name: '.NET Core',
-        icon: 'diDotnetcorePlain',
+        icon: 'diDotnetcoreOriginal',
       },
       {
         name: 'Bootstrap',
-        icon: 'diBootstrapPlain',
+        icon: 'diBootstrapOriginal',
       },
       {
         name: 'NgRx',
-        icon: 'diNgrxPlain',
+        icon: 'diNgrxOriginal',
       },
     ],
     workDone: [
@@ -264,7 +265,7 @@ const _jobData: JobData[] = [
     techStack: [
       {
         name: 'Angular',
-        icon: 'diAngularPlain',
+        icon: 'diAngularOriginal',
       },
       {
         name: 'Ionic Framework',
@@ -280,11 +281,11 @@ const _jobData: JobData[] = [
       },
       {
         name: '.NET Core',
-        icon: 'diDotnetcorePlain',
+        icon: 'diDotnetcoreOriginal',
       },
       {
         name: 'HTML5',
-        icon: 'diHtml5Plain',
+        icon: 'diHtml5Original',
         category: 'frontend',
       },
     ],
@@ -301,12 +302,12 @@ const _jobData: JobData[] = [
     yearEnd: 2023,
     company: 'BBTDigital',
     projectName: 'The Adviser Platform Customer Portal',
-    role: 'Fontend Developer',
+    role: 'Frontend Developer',
     projectCategory: 'CRM',
     techStack: [
       {
         name: 'Angular',
-        icon: 'diAngularPlain',
+        icon: 'diAngularOriginal',
       },
       {
         name: 'SASS',
@@ -314,15 +315,15 @@ const _jobData: JobData[] = [
       },
       {
         name: 'Typescript',
-        icon: 'diTypescriptPlain',
+        icon: 'diTypescriptOriginal',
       },
       {
         name: 'Elf state management',
-        icon: '',
+        icon: 'pfIconElf',
       },
       {
         name: 'Bootstrap',
-        icon: 'diBootstrapPlain',
+        icon: 'diBootstrapOriginal',
       },
     ],
     workDone: [
@@ -340,12 +341,12 @@ const _jobData: JobData[] = [
     yearEnd: 2026,
     company: 'BBTDigital',
     projectName: 'The Adviser Platform',
-    role: 'Fontend Developer',
+    role: 'Frontend Developer',
     projectCategory: 'CRM',
     techStack: [
       {
         name: 'Angular',
-        icon: 'diAngularPlain',
+        icon: 'diAngularOriginal',
       },
       {
         name: 'SASS',
@@ -353,19 +354,19 @@ const _jobData: JobData[] = [
       },
       {
         name: 'Typescript',
-        icon: 'diTypescriptPlain',
+        icon: 'diTypescriptOriginal',
       },
       {
         name: 'Angular Material',
-        icon: 'diAngularmaterialPlain',
+        icon: 'diAngularmaterialOriginal',
       },
       {
         name: 'Akita state management',
-        icon: '',
+        icon: 'pfIconAkita',
       },
       {
         name: 'Bootstrap',
-        icon: 'diBootstrapPlain',
+        icon: 'diBootstrapOriginal',
       },
     ],
     workDone: [
@@ -390,6 +391,7 @@ export const jobData = _jobData.map((d, index) => {
 export const techStacks = _techStacks
   .map((t, index) => {
     t.id = index + 1;
+    t.visible = true;
     return t;
   })
   .sort((a, b) => a.name.localeCompare(b.name));

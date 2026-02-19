@@ -16,7 +16,7 @@ body {
 :root {
   --pf-transition: cubic-bezier(0.4, 0, 0.2, 1);
   --pf-transition2: cubic-bezier(0.77, 0, 0.175, 1);
-  --pf-spacing: 2.5vh;
+  --pf-spacing: 2.5dvh;
   /* GSAP power1 */
   --pf-gsap-p1: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   /* GSAP power2 */
@@ -28,6 +28,17 @@ body {
 
   --pf-text-color: #141414;
   --pf-bg-color:   #f7f7f7;
+
+  --pf-h-screen: 100dvh;
+  --pf-w-screen: 100dvw;
+}
+
+.pf-h-screen {
+  height: var(--pf-h-screen);
+}
+
+.pf-w-screen {
+  width: var(--pf-w-screen);
 }
 
 @media (prefers-color-scheme: dark) {
